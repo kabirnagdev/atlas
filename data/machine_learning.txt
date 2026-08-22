@@ -1,0 +1,27 @@
+Machine Learning Techniques Overview
+1
+Machine Learning (ML) enables systems to learn from data and improve performance without explicit programming. It is broadly categorized into Supervised, Unsupervised, and Reinforcement Learning, with Semi-Supervised and Self-Supervised Learning gaining prominence in modern applications.
+
+Supervised Learning uses labeled data for tasks like:
+
+Classification: Predict discrete categories (e.g., Logistic Regression, Decision Trees, SVM, k-NN, Naïve Bayes, Random Forest).
+
+Regression: Predict continuous values (e.g., Linear Regression, Multiple Regression).
+
+Unsupervised Learning works with unlabeled data to find patterns:
+
+Clustering: K-Means, Hierarchical Clustering, DBSCAN.
+
+Dimensionality Reduction: PCA, t-SNE, ICA.
+
+Association Rule Mining: Apriori, FP-Growth.
+
+Reinforcement Learning involves agents learning via rewards:
+
+Model-Based: MDPs, Value Iteration.
+
+Model-Free: Q-Learning, SARSA, Actor-Critic, A3C.
+
+Semi-Supervised Learning combines small labeled datasets with large unlabeled ones, useful when labeling is costly. Self-Supervised Learning generates labels from data itself, widely used in deep learning.
+
+Example: Implementing K-Means Clustering
