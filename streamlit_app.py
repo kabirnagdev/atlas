@@ -2,12 +2,57 @@ import os
 import sys
 import streamlit as st
 
-# Set Streamlit Page Configuration (Zero Emojis)
+# Set Streamlit Page Configuration (Light Base, Zero Emojis)
 st.set_page_config(
     page_title="Atlas — PDF Retrieval & Context Engine",
     layout="wide",
     initial_sidebar_state="expanded"
 )
+
+# Custom CSS for Crisp White Minimalist Theme (Matching Previous HTML/CSS Design)
+st.markdown("""
+    <style>
+    /* Force Light Background & Text */
+    .stApp {
+        background-color: #f4f4f5 !important;
+        color: #27272a !important;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    }
+    
+    /* Header Styling */
+    h1, h2, h3, h4, h5, h6 {
+        color: #09090b !important;
+        font-weight: 700 !important;
+    }
+    
+    /* Sidebar Styling */
+    [data-testid="stSidebar"] {
+        background-color: #ffffff !important;
+        border-right: 1px solid #e4e4e7 !important;
+    }
+    
+    /* Card Container Styling */
+    div.stBlock {
+        background-color: #ffffff !important;
+        border: 1px solid #e4e4e7 !important;
+        border-radius: 12px !important;
+        padding: 1.5rem !important;
+    }
+    
+    /* Buttons */
+    .stButton > button {
+        background-color: #18181b !important;
+        color: #ffffff !important;
+        border-radius: 8px !important;
+        border: none !important;
+        font-weight: 600 !important;
+    }
+    
+    .stButton > button:hover {
+        background-color: #27272a !important;
+    }
+    </style>
+""", unsafe_allow_html=True)
 
 # Ensure backend modules are discoverable
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "backend")))
