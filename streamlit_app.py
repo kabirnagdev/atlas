@@ -2,10 +2,9 @@ import os
 import sys
 import streamlit as st
 
-# Set Streamlit Page Configuration
+# Set Streamlit Page Configuration (Zero Emojis)
 st.set_page_config(
     page_title="Atlas — PDF Retrieval & Context Engine",
-    page_icon="📄",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -30,7 +29,7 @@ st.caption("Domain-specific PDF contextualization and grounded answer generation
 st.markdown("---")
 
 # Sidebar: PDF Library & Ingestion
-st.sidebar.header("📁 PDF Context Library")
+st.sidebar.header("PDF Context Library")
 
 uploaded_file = st.sidebar.file_uploader("Upload New PDF Document", type=["pdf"])
 
@@ -49,7 +48,7 @@ all_docs = pipeline.get_all_documents()
 if all_docs:
     st.sidebar.subheader("Active Context Selection")
     for doc in all_docs:
-        col1, col2 = st.sidebar.columns([0.8, 0.2])
+        col1, col2 = st.sidebar.columns([0.75, 0.25])
         is_checked = col1.checkbox(
             doc["filename"],
             value=doc.get("is_active", True),
@@ -59,7 +58,7 @@ if all_docs:
             pipeline.toggle_document_active(doc["filename"], is_checked)
             st.rerun()
 
-        if col2.button("🗑️", key=f"del_{doc['filename']}", help="Delete from disk"):
+        if col2.button("Delete", key=f"del_{doc['filename']}", help="Delete from disk"):
             pipeline.delete_document_context(doc["filename"])
             st.rerun()
 else:
