@@ -1,4 +1,4 @@
-<img width="860" height="378" alt="Screenshot 2026-08-22 025556" src="https://github.com/user-attachments/assets/57e2837f-865e-4989-9388-dd33059c4bad" /># Atlas
+# Atlas
 <img width="1920" height="1080" alt="atlas" src="https://github.com/user-attachments/assets/fa3a3286-7827-4322-9f7b-c4df9e55b677" />
 
 Atlas RAG is a Retrieval-Augmented Generation (RAG) application built with Python, LangChain, and Streamlit. It lets users upload PDF documents, split them into searchable chunks, store them in a vector database, and ask questions about the content using a language model.
