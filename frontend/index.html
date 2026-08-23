@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atlas — PDF Context Engine</title>
+  <link rel="stylesheet" href="css/style.css?v=2026_pdflib">
+</head>
+<body>
+
+  <div class="app-wrapper">
+    
+    <!-- Clean Navbar Header -->
+    <header class="app-header">
+      <div class="brand-group">
+        <h1>Atlas</h1>
+        <span class="tagline">PDF Retrieval & Context Engine</span>
+      </div>
+
+      <div class="header-right">
+        <button class="btn-link" id="guideBtn">Model Connection Guide</button>
+      </div>
+    </header>
+
+    <!-- 2-Column Split Workspace -->
+    <main class="workspace-grid">
+
+      <!-- Left Column: Input Controls & PDF Library Context Selection -->
+      <div>
+        <section class="card">
+          <h2 class="card-title">Document Upload & Question</h2>
+
+          <!-- 1. PDF Upload Area -->
+          <div class="field-group">
+            <label class="field-label">Upload New PDF</label>
+            <div class="file-dropzone" id="dropzone">
+              <div class="dropzone-prompt">
+                <strong>Click to upload PDF</strong> or drag & drop file
+              </div>
+              <input type="file" id="fileInput" accept=".pdf" style="display: none;">
+              <div class="selected-file-pill" id="selectedFilePill" style="display: none;"></div>
+            </div>
+          </div>
+
+          <!-- 2. PDF Page Number Scope -->
+          <div class="field-group">
+            <label class="field-label" for="pageScope">PDF Page Scope <span>(Optional)</span></label>
+            <input type="text" id="pageScope" class="form-control" placeholder="e.g. 3, or 1-5 (leave blank for entire document)">
+          </div>
+
+          <!-- 3. Question Input Box -->
+          <div class="field-group">
+            <label class="field-label" for="questionInput">Ask a Question</label>
+            <textarea id="questionInput" class="form-control" placeholder="Type your question about the PDF..."></textarea>
+          </div>
+
+          <!-- Submit Button -->
+          <button class="btn-submit" id="submitBtn">Ask Question</button>
+        </section>
+
+        <!-- PDF Library & Checkbox Context Selection -->
+        <section class="card">
+          <h2 class="card-title">PDF Library & Context Selection</h2>
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.85rem;">
+            Check PDFs to include them in active search context. Uncheck to temporarily exclude, or delete to permanently remove from disk.
+          </p>
+
+          <div class="doc-library-list" id="docLibraryList">
+            <p class="empty-state" style="font-size: 0.85rem;">No PDFs in library. Upload a PDF to add it to your context library.</p>
+          </div>
+        </section>
+      </div>
+
+      <!-- Right Column: Output & Context Area -->
+      <section class="card">
+        <h2 class="card-title">Answer & Output</h2>
+
+        <!-- Generated Answer Container -->
+        <div class="output-container" id="outputContainer">
+          <p class="empty-state">Upload a PDF or ask a question to see the response.</p>
+        </div>
+
+        <!-- Context Chunks List -->
+        <div class="sources-block" id="sourcesBlock" style="display: none;">
+          <h3>Retrieved Context Passages</h3>
+          <div id="sourcesList"></div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Discreet Bottom Footer -->
+    <footer class="app-footer">
+      <span>Atlas PDF Context System</span>
+      <div>
+        <label for="modeSelect" style="display:inline; margin-right:0.4rem; font-size:0.78rem;">Model Engine:</label>
+        <select id="modeSelect" class="hidden-engine-select">
+          <option value="live" selected>Live Atlas Model</option>
+          <option value="mock">Atlas Engine</option>
+        </select>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Model Integration Guide Modal -->
+  <div class="modal-backdrop" id="guideModal">
+    <div class="modal-box">
+      <h2>Model Connection Instructions</h2>
+      <p>Follow these steps to connect your Python model backend:</p>
+      <ol>
+        <li>Copy your model folder into <code>backend/src/atlas_rag/</code>.</li>
+        <li>Open <code>backend/src/atlas_rag/live_rag.py</code> and call your model functions inside <code>query()</code> and <code>ingest_document()</code>.</li>
+        <li>Your model is now fully connected to the application.</li>
+      </ol>
+      <button class="btn-close-modal" id="closeGuideModalBtn">Close</button>
+    </div>
+  </div>
+
+  <script src="js/app.js?v=2026_pdflib"></script>
+</body>
+</html>

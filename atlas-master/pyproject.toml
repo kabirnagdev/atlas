@@ -1,0 +1,27 @@
+[project]
+name = "atlas-rag"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Kabir Nagdev", email = "174309715+kabirnagdev@users.noreply.github.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "chromadb>=1.5.9",
+    "faiss-cpu>=1.15.0",
+    "langchain>=1.3.16",
+    "langchain-community>=0.4.2",
+    "langchain-core>=1.6.0",
+    "langchain-text-splitters>=1.1.2",
+    "pymupdf>=1.28.2",
+    "pypdf>=6.16.1",
+    "sentence-transformers>=6.0.0",
+]
+
+[project.scripts]
+atlas-rag = "atlas_rag:main"
+
+[build-system]
+requires = ["uv_build>=0.12.5,<0.13.0"]
+build-backend = "uv_build"
